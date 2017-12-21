@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+         "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+ <title>Пример использования форм</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+ <h1>Пример формы регистрации сайта</h1>
+ <form action="file.php" method="POST" enctype="multipart/form-data">
+  <div>
+   Логин:<br>
+   <input type="text" name="pole1"><br>
+   Пароль:<br>
+   <input type="password" name="pole2" value="Пароль"><br>
+   URL-адрес сайта:<br>
+   <input type="text" name="pole3" value="http://" size="20"><br>
+   Название сайта:<br>
+   <input type="text" name="pole4" size="20"><br>
+   <input type="radio" name="radio1" value="male" checked>Мужской<br>
+   <input type="radio" name="radio1" value="female">Женский<br>
+   Описание сайта:<br>
+   <textarea name="pole5" rows="10" cols="15"></textarea><br>
+   Тема сайта:<br>
+   <select name="pole6">
+     <option value="0" selected>Тема не выбрана</option>
+     <option value="1">Тема1</option>
+     <option value="2">Тема2</option>
+     <option value="3">Тема3</option>
+   </select><br>
+   <select name="select1">
+    <optgroup label="Отечественные">
+     <option value="1">ВАЗ</option>
+     <option value="2">ГАЗ</option>
+     <option value="3">Москвич</option>
+    </optgroup>
+    <optgroup label="Зарубежные">
+     <option value="4">BMW</option>
+     <option value="5">Opel</option>
+     <option value="6">Audi</option>
+    </optgroup>
+   </select>
+   Баннер 88*31:<br>
+   <input type="file" name="pole7" size="20"><br><br>
+   <input type="reset" value="Очистить"> 
+   <input type="submit" value="Отправить">
+  </div>
+  <div>
+	  <input type="email" name="email" required placeholder="Baш e-mail">
+<input type="range" name="level" min="l" max="lO" step="2">
+<input type="date" name="Ьirthday" autofocus>
+<input type="text" name="post_code" pattern="[0-9]{6)"
+	   placeholder="Koд почтового отделения (шесть цифр)">
+  </div>
+	 <div><datalist id="browsers">
+<option value="Internet Explorer">
+<option value="Firefox">
+<option value="Chrome">
+<option value="Opera">
+<option value="Safari">
+</datalist>
+<input type="text" name="browser" list="browsers"
+placeholder="Baш WеЬ-обозреватель"></div>
+ </form>
+</body>
+</html>
