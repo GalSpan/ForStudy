@@ -13,7 +13,11 @@ echo "<br>";
 echo PHP_VERSION;
 echo "<br>";
 // Назначение и вывод константы
+<<<<<<< HEAD
 define("PI", 3.14, true); // 3-ий аргумент для того чтобы убрать чувствительность к регистру
+=======
+define("PI", 3.14, true); // 3-ий аргумент для точтобы убрать чувствительность к регистру
+>>>>>>> c9f086f20639955fd9c2ce9d5c8b3724cdafdad4
 echo PI;
 echo "<br>";
 echo defined("pi");
@@ -89,7 +93,11 @@ if ($x == $y && $x != 12 && $y == 5 && ($x + 5) == 15) {
 } else {
     echo 'Vce crabotalo else';
 }
+<<<<<<< HEAD
 $x == $y ? $string = "Da" : $string = "Net"; // Korotkay zapic, esli x = y, simvol ? znachit togda, viveditasa Da, simvol : znachit inache, viveitsa Net
+=======
+$x == $y ? $string = "Da" : $string = "Met"; // Korotkay zapic, esli x = y, simvol ? znachit togda, viveditasa Da, simvol : znachit inache, viveitsa Net
+>>>>>>> c9f086f20639955fd9c2ce9d5c8b3724cdafdad4
 echo "<br>".$string;
 echo "<br>";
 // Условный Оператор Swich () case
@@ -102,10 +110,17 @@ switch ($x) {
     default : echo "Это переменная нам не известна"; // break не нужно так как это последняя операция
 }
 echo "<br>";
+<<<<<<< HEAD
 // Циклы for, while, do while и foreach
 echo "<br>Цикл for<br>";
 for ($i = 100; $i >= 80; $i -= 2) {
     if ($i % 5 == 0) continue; // Сбрасывает, пропускает итерацию
+=======
+// Циклы for while и do while
+echo "<br>Цикл for<br>";
+for ($i = 100; $i >= 80; $i -= 2) {
+    if ($i % 5 == 0) continue; // Сбрасывает итерацию
+>>>>>>> c9f086f20639955fd9c2ce9d5c8b3724cdafdad4
     if ($i <= 87) break; // Прерывает цикл
     echo "Цикл под номером № $i<br>";
 }
@@ -124,12 +139,15 @@ do {
     echo "Операция выполнилась только один раз";
 } while ($z < 5); // Единственный цикл который оканчивается на ; и выполниться хотя бы 1-н раз
 echo "<br>";
+<<<<<<< HEAD
 echo "Цикл foreach";
 $Array8 = array('a' => 0, 'b' => 1, 'c' => 2);
 foreach($Array8 as $key => $value) {
 	echo "<br>Ключ: $key; Значение: $value";
 }
 echo "<br>";
+=======
+>>>>>>> c9f086f20639955fd9c2ce9d5c8b3724cdafdad4
 // Функции
 echo "<br><b>Функции</b><br>";
 function printWords ($word, $x, $y) { // Эта функция обьявляет, можно менять название аргументов, но их количество должно быть правильным
@@ -143,12 +161,16 @@ function math ($first, $second) { // Эта функция складывает
 $x = 12;
 $y = 35;
 
+<<<<<<< HEAD
 printWords ($sum, $x, $y); // Это как функцию выводит, вызов функции, при этом количество аргументов должно быть правильным.
 echo "<br>";
 function Test1 ($p1, $pl2 = "Гудентак") { // p1 это аргумент (параметр) его значение прописывается при выводе функции можно задать по умлочанию, но аргумент при выводе важнее
 	echo "Привет $p1 $pl2";
 }
 Test1('Хай');
+=======
+printWords ($sum, $x, $y); // Это как функцию выводит, при этом количество аргументов должно быть правильным.
+>>>>>>> c9f086f20639955fd9c2ce9d5c8b3724cdafdad4
 echo "<br>";
 // Массивы
 echo "<br><b>Массивы</b><br>";
@@ -164,17 +186,26 @@ echo "<br>".$array[4]."<br>";
 for ($i = 0; $i < count($array); $i++) { // Считает количество элементов в массиве
     echo "Элемент массива с индексом $i = ".$array[$i]."<br>";
 }
+<<<<<<< HEAD
 $list = array ("age" => 12, "name" => "Alex", "schoolBoy" => true); // ассоциативный массив
+=======
+$list = array ("age" => 12, "name" => "Alex", "schoolBoy" => true);
+>>>>>>> c9f086f20639955fd9c2ce9d5c8b3724cdafdad4
 $list [age] = 10; // Замена элемента массива с ключом
 echo $list[name]."<br>"; // Вывод элемента массива с ключом
 $summ = 0;
 echo getAverage (array ("first" => 12, "sec" => 45, "third" => 23, "forth" => 55));
 function getAverage ($array) { // Находим среднее чесло массива getAverage
+<<<<<<< HEAD
     foreach ($array as $key => $value) { // foreach берёт ключь и сравнивает с элементом массива и => может обозначать приравнивается
+=======
+    foreach ($array as $key => $value) { // foreach берёт ключь и сравнивает с элементом массива
+>>>>>>> c9f086f20639955fd9c2ce9d5c8b3724cdafdad4
         $summ += $value;
         echo $key."<br>";
         echo $value."<br>";
     }
+<<<<<<< HEAD
     return $summ / count ($array); // сумма ключей на количество элементов массива
 }
 echo "<br>";
@@ -182,6 +213,11 @@ $Array9 = array ('Апельсин', 'Лимон', 'Яблоко', "Персик
 unset($Array9[0]); // удаление элемента массива
 var_dump($Array9); // var_dump вывод информации о переменной
 echo "<br>";
+=======
+    return $summ / count ($array);
+}
+echo "<br>";
+>>>>>>> c9f086f20639955fd9c2ce9d5c8b3724cdafdad4
 // Многомерные Массивы
 echo "<br><b>Многомерные Массивы</b><br>";
 $array = array (array(12, 4.46, "string", true), array ("Example"), array (45, "strong")); // Это двумерный массив, если 
@@ -200,7 +236,11 @@ $z = 5;
 function test () {
     $x = 7;
     $GLOBALS["y"] += 7;
+<<<<<<< HEAD
     global $z; // объявление глобальной переменны внутри функции
+=======
+    global $z;
+>>>>>>> c9f086f20639955fd9c2ce9d5c8b3724cdafdad4
     echo "Локальная переменная = $x <br>";
     echo "Глобальная переменная в функции = $y <br>"; // Не понятно почему не отображается???
     echo "Глобальная переменная в функции = $z <br>";
