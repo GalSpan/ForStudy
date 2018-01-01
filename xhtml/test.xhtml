@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>AJAX и JSON</title>
+    <script>
+      window.addEventListener("load", function() {
+        var oAJAX = new XMLHttpRequest();
+        oAJAX.open("GET", "data.json", true);
+        oAJAX.onreadystatechange = function() {
+          var oOutput = document.getElementById("output");
+          if ((oAJAX.readyState == 4) && (oAJAX.status == 200)) {
+            if (JSON) {
+              var oData = JSON.parse(oAJAX.responseText);
+            } else {
+              var oData = eval(oAJAX.responseText);
+            }
+            if (oData.status == 1) {
+              var oP;
+              for (i in oData.data) {
+                oP = document.createElement("p");
+                oP.textContent = oData.data[i].id + ". " +
+                oData.data[i].title;
+                oOutput.appendChild(oP);
+              }
+            } else {
+              oOutput.textContent = "Получены ошибочные данные.";
+            }
+          }
+        }
+        oAJAX.send();
+      }, false);
+    </script>
+  </head>
+  <body>
+    <div id="output"></div>
+  </body>
+</html>
