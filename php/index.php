@@ -370,10 +370,10 @@ echo "<br><b>phpinfo() и $_SERVER</b><br>";
 echo $_SERVER["REMOTE_ADDR"]."<br>"; // _SERVER глобальный массив бля годаря которой можно сделать статистику по сайту
 //phpinfo(); // phpinfo выдаёт информацию о пчп функциональности
 
-// Дальщи информация некоторая будет в отдельных файлах папки DlyaUchoby2
+// Дальщи информация некоторая будет в отдельных файлах папки ForStudy
 //Создание редиректа
 echo "<br><b>Создание редиректа</b><br>";
-echo "<a href=http://dlyauchoby/php/redirect.php>redirect</a>"."<br>";
+echo "<a href=http://ForStudy/php/redirect.php>redirect</a>"."<br>";
 
 //Отправка почты на email
 echo "<br><b>Отправка почты на email</b><br>";
@@ -387,16 +387,16 @@ mail ($to, $subject, $message, $headers);
 
 //Работа с куки $_COOKIE
 echo "<br><b>Работа с куки $_COOKIE</b><br>";
-echo "<a href=http://dlyauchoby/php/cookie.php>cookie</a>"."<br>";
-echo "<a href=http://dlyauchoby/php/cookie2.php>cookie2</a>"."<br>";
+echo "<a href=http://ForStudy/php/cookie.php>cookie</a>"."<br>";
+echo "<a href=http://ForStudy/php/cookie2.php>cookie2</a>"."<br>";
 
 //Работа с сессиями $_SESSION
 echo "<br><b>Работа с сессиями $_SESSION</b><br>";
-echo "<a href=http://dlyauchoby/php/sesia.php>sesia</a>"."<br>";
+echo "<a href=http://ForStudy/php/sesia.php>sesia</a>"."<br>";
 
 //Работа с сессиями $_SESSION Видеоуроки PHP https://www.youtube.com/watch?v=tGrUKglMwkQ&list=PLB8wmVoWIIx6r2fvV8Tirv_dvyfAM9VuK&index=5
 echo "<br><b>Работа с сессиями Видеоуроки PHP</b><br>";
-echo "<a href=http://php/page2.php>page2</a>"."<br>";
+echo "<a href=http://ForStudy/php/page2.php>page2</a>"."<br>";
 session_start();
 
 $_SESSION['Язык'] = 'PHP'; // $_SESSION это супер глобальный массив
@@ -410,23 +410,28 @@ echo "<br>";
 //Форма обратной связи
 echo "<br><b>Форма обратной связи</b><br>";
 // <? равно <?php echo
-echo "<a href=http://dlyauchoby/php/forma.php>forma</a>"."<br>";
+echo "<a href=http://ForStudy/php/forma.php>forma</a>"."<br>";
 
-//Подключение к БД и Добавление записей в БД с помощью кода
+/*//Подключение к БД и Добавление записей в БД с помощью кода
 echo "<br><b>Подключение к БД и Добавление записей в БД с помощью кода</b><br>";
-$mysqli = new mysqli ("127.0.0.1", "root", "", "myBase"); //127.0.0.1 localhost
-$mysqli->query("SET NAMES 'utf8'");
+$mysqli = new mysqli ("127.0.0.1", "root", "", "myBase"); //127.0.0.1 localhost, логин root без пароля
+$mysqli->query ("SET NAMES 'utf8'"); // -> значит послать запрос
 // Тут пишем код между query и close
-$success = $mysqli->query ("INSERT INTO 'users' ('login', 'password', 'reg_date') VALUES ('123', '".md5("123")."', '".time ()."')");
+$success = $mysqli->query ("INSERT INTO `users` (`login`, `password`, `reg_date`) VALUES ('123', '".md5("123")."', '".time ()."')");
 echo $success;
-$mysqli->close ();
+
+for ($i = 1; $i < 10; $i++) {
+	$mysqli->query ("INSERT INTO `users` (`login`, `password`, `reg_date`) VALUES ('$i', '".md5("$i")."', '".time ()."')");
+}
+
+$mysqli->close ();*/
 
 
 
 
 
 //PHP Для начинающего. https://www.youtube.com/playlist?list=PLB8wmVoWIIx6r2fvV8Tirv_dvyfAM9VuK
-echo "<br><b>PHP Для начинающего. https://www.youtube.com/playlist?list=PLB8wmVoWIIx6r2fvV8Tirv_dvyfAM9VuK</b><br>";
+echo "<br><br><br><b>PHP Для начинающего. <a href=https://www.youtube.com/playlist?list=PLB8wmVoWIIx6r2fvV8Tirv_dvyfAM9VuK>Курс</a></b><br>";
 // Математические операторы
 echo "<br><b>Математические операторы</b><br>";
 // Типы переменных
@@ -437,4 +442,31 @@ $string = 'Текст'; // текстовые
 $string.= ' 123'; // .= прибавляем текст
 echo $string;
 // Можно выводить 3-мя способами текст в ' ' " " и <<<END END;
+echo "<br><br><b>Работа с Базой данных. Часть 10</b><br>";
+echo "<a href=http://ForStudy/php/setting.php>setting</a>"."<br>";
+include_once('setting.php'); // подключает сторонний файл один раз
+$Connect = mysqli_connect(HOST, USER, PASSWORD, DB);
+if (!$Connect) exit('Ошибка подключения к БД.');
+echo "<b>SELECT</b> запрос<br>";
+// $Row = mysqli_fetch_assoc(mysqli_query($Connect, 'SELECT * FROM `test` WHERE `id` = 1'));
+$Row = mysqli_fetch_assoc(mysqli_query($Connect, 'SELECT `text_1`, `text_2` FROM `test` WHERE `id` = 1'));
+// mysql_fetch_assoc — Возвращает ряд результата запроса в качестве ассоциативного массива и mysql_query — Посылает запрос MySQL и если хотим все данные возратить то пишем SELECT *
+echo $Row['text_2'];
+echo "<br>";
+var_dump($Row);
+$Query = mysqli_query($Connect, 'SELECT `text_1`, `text_2` FROM `test` ORDER BY `id` DESC'); // ORDER BY сортировать по DESC от большего к меньшему
+// $Query = mysqli_query($Connect, 'SELECT `text_1`, `text_2` FROM `test` LIMIT 2'); // LIMIT лимит выборки
+while($Row = mysqli_fetch_assoc($Query)) { // $Row тут новая персенная
+	echo"<br>$Row[text_1] $Row[text_2]";
+}
+$Query = mysqli_query($Connect, 'SELECT `text_1`, `text_2` FROM `test` WHERE `id` = 1'); // если уюрать where to будет искать все сеты
+$Num = mysqli_num_rows($Query); // mysqli_num_rows вычисляет сколько всего сетов в таблице, если убрать 
+echo "<br>$Num"; // выше есть num php чувствителен к регистр
+echo "<br><b>UPDATE</b> запрос<br>";
+mysqli_query($Connect, "UPDATE `test` SET `text_1` = 'Это обновление' WHERE `id` = 3"); // UPDATE обновляет переменные, если без WHERE то весь столбец text_1 обновится
+echo "<b>INSERT INTO</b> запрос<br>";
+// mysqli_query($Connect, "INSERT INTO `test` VALUE ('', NOW(), 'Это текст 1', 'Это текст 2')"); // INSERT INTO добавляет сеты, лучше закоментить а то будет каждый раз добавлять сет
+echo "<b>DELETE</b> запрос<br>";
+// $Query = mysqli_query($Connect, 'DELETE FROM `test` WHERE `id` = 4'); // DELETE удаляет сеты, если убрать WHERE `id` = 4, то удалится вся таблица, лучше закоменьтить, а то будет каждый раз удалять сет
+var_dump($connect); // проверка подключения и выводит информацию о переменной если bool(false) 
 ?>
